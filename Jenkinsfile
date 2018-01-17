@@ -11,6 +11,11 @@ pipeline {
         sh 'mvn test'
       }
     }
+    stage('CodeAnalysis') {
+      steps {
+        hygieiaCodeQualityPublishStep(junitFilePattern: '*Test.xml')
+      }
+    }
   }
   environment {
     DevUnitTest = ''
