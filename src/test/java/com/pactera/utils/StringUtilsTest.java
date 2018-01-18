@@ -19,4 +19,11 @@ public class StringUtilsTest {
 		assertTrue(StringUtils.isEmpty(nullStr));
 	}
 	
+	@Test
+	public void testIsEmpty2() {
+		String emptyStr = "123";
+		String nullStr = null;
+		assertTrue(StringUtils.isEmpty(emptyStr));
+		assertTrue(StringUtils.isEmpty(nullStr));
+	}
 }
