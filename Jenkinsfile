@@ -12,8 +12,17 @@ pipeline {
       }
     }
     stage('CodeAnalysis') {
-      steps {
-        hygieiaCodeQualityPublishStep(junitFilePattern: '*Test.xml')
+      parallel {
+        stage('CodeAnalysis') {
+          steps {
+            hygieiaCodeQualityPublishStep(junitFilePattern: '*Test.xml')
+          }
+        }
+        stage('') {
+          steps {
+            jiraSearch ' project = DEV AND assignee in (administrator)'
+          }
+        }
       }
     }
   }
