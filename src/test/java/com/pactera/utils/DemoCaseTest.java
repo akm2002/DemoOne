@@ -7,7 +7,7 @@ public class DemoCaseTest {
 
 	
 	@Test
-	public static void testSaySomething() {
+	public void testSaySomething() {
 		
 		DemoCase.saySomething();
 	}
